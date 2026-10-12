@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bugün Ne Yesem? – Evde ne varsa o!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@500;700&family=Orbitron:wght@800;900&family=Caveat:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <script src="theme.js"></script>
+  <aside class="sidebar sidebar-home">
+    <div class="side-top">
+      <a class="logo logo-big" href="index.html">BUGÜN<br>NE YESEM?</a>
+      <p class="slogan"><span>Öğrenci Dostu</span> Akıllı Mutfak Asistanı</p>
+    </div>
+
+    <div class="side-hero">
+      <h1 class="doodle-title">Evde Ne Varsa O!</h1>
+      <p class="lead">Malzemelerini seç, elindekilerle ne yapabileceğini anında gör. Maliyet yok, israf yok!</p>
+      <a class="btn-neon btn-cta" href="kiler.html">
+        <span class="cta-top">EVDEKİ MALZEMELERLE NE PİŞİRSEM?</span>
+        <span class="cta-sub">Keşfe Başla →</span>
+      </a>
+    </div>
+
+    <nav class="side-nav side-nav-compact" aria-label="Ana menü">
+      <ul>
+        <li><a href="kiler.html">Kilerim</a></li>
+        <li><a href="tarif.html">Tarifler</a></li>
+        <li><a href="bilgi.html">Besin Tablosu</a></li>
+        <li><a href="plan.html">Alışveriş Listem</a></li>
+      </ul>
+    </nav>
+
+    <div class="side-footer">
+      <div class="icon-capsule">
+        <a class="profile cap-btn" href="#" aria-label="Kullanıcı Profili"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="10" r="3.2"/><path d="M5.8 18.6c1.4-2.6 3.6-3.8 6.2-3.8s4.8 1.2 6.2 3.8"/></svg></a>
+        <button class="theme-toggle cap-btn" id="themeToggle" type="button" aria-label="Gece / gündüz modunu değiştir">
+          <svg class="moon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg>
+          <svg class="sun" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+        </button>
+      </div>
+      <ul class="footer-labels">
+        <li><a href="#">Kullanıcı Profili</a></li>
+        <li><button type="button" data-theme-toggle>Tema Değiştirici</button></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main class="split">
+    <div class="playground">
+      <section class="doodle-wrap">
+        <article class="bento-card slider-card" id="slider">
+          <svg class="doodle doodle-star" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 4v10M24 34v10M4 24h10M34 24h10M10 10l7 7M31 31l7 7M38 10l-7 7M17 31l-7 7"/></svg>
+          <div class="slide-img" id="slideImg"></div>
+          <span class="vertical-label">GÜNÜN TARİFİ</span>
+          <div class="slide-body">
+            <a class="slide-link" id="slideLink" href="tarif.html">
+              <span class="eyebrow">ÖNE ÇIKAN</span>
+              <h2 id="slideTitle"></h2>
+            </a>
+            <p class="handnote">Hızlı, ucuz, doyurucu!</p>
+            <div class="slider-controls">
+              <div class="progress-track"><div class="progress-fill" id="progress"></div></div>
+              <div class="arrows">
+                <button id="prev" aria-label="Önceki">&lt;</button>
+                <button id="next" aria-label="Sonraki">&gt;</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="categories doodle-wrap">
+        <h2 class="doodle-h">Öğün Seç</h2>
+        <svg class="doodle doodle-arrow" viewBox="0 0 64 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6c18-4 36 2 48 24"/><path d="M42 26l10 4 2-11"/></svg>
+        <div class="cat-grid">
+          <a class="cat-card neon-red" href="kiler.html?tag=Sabah"><svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="28" r="9"/><path d="M24 8v6M10 16l4 4M38 16l-4 4M6 28h6M36 28h6M6 40h36"/></svg><span>Sabah</span></a>
+          <a class="cat-card neon-green" href="kiler.html?tag=%C3%96%C4%9Fle"><svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="24" r="16"/><circle cx="24" cy="24" r="9"/><path d="M4 24h2M42 24h2"/></svg><span>Öğle</span></a>
+          <a class="cat-card neon-purple" href="kiler.html?tag=Ak%C5%9Fam"><svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M38 28A16 16 0 1 1 20 10a12 12 0 0 0 18 18z"/><path d="M34 8v6M31 11h6"/></svg><span>Akşam</span></a>
+        </div>
+      </section>
+
+      <section class="doodle-wrap" aria-labelledby="quickTitle">
+        <h2 class="doodle-h" id="quickTitle">Evin Demirbaşları</h2>
+        <div class="quick-filters" id="quickFilters">
+          <button class="quick-chip" data-q="Yumurta">🥚 Sadece Yumurtam Var</button>
+          <button class="quick-chip" data-q="Patates">🥔 Patates Kurtarır</button>
+          <button class="quick-chip" data-q="Makarna">🍝 Yine mi Makarna?</button>
+          <button class="quick-chip" data-q="Tavuk">🍗 Tavuklu Bir Şeyler</button>
+          <button class="quick-chip" data-q="Mercimek">🥣 Mercimek Mucizesi</button>
+        </div>
+      </section>
+
+      <section>
+        <button class="bento-card random-card" id="randomRecipe">
+          <svg class="icon dice" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="36" height="36" rx="8"/><circle cx="16" cy="16" r="2" fill="currentColor"/><circle cx="32" cy="16" r="2" fill="currentColor"/><circle cx="24" cy="24" r="2" fill="currentColor"/><circle cx="16" cy="32" r="2" fill="currentColor"/><circle cx="32" cy="32" r="2" fill="currentColor"/></svg>
+          <span class="random-text">
+            <strong>Kararsız Kaldım / Ne Yesem?</strong>
+            <span>Zarı at, bugünün tarifini şans belirlesin.</span>
+          </span>
+          <span class="btn-pill">Zar At</span>
+        </button>
+      </section>
+
+      <section aria-labelledby="howTitle">
+        <h2 class="doodle-h" id="howTitle">Nasıl Çalışır?</h2>
+        <div class="steps-grid">
+          <div class="bento-card step-card"><svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="11" y="4" width="26" height="40" rx="5"/><path d="M11 20h26M17 11v4M17 26v8"/></svg><p>Dolabındaki malzemeleri seç</p></div>
+          <div class="bento-card step-card"><svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 12h22M16 24h22M16 36h22"/><path d="M6 12l2 2 4-4M6 24l2 2 4-4"/><path d="M7 33l5 5M12 33l-5 5"/></svg><p>Eksiklerini gör, listene ekle</p></div>
+          <div class="bento-card step-card step-go"><svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 4c2 8 12 12 12 24a12 12 0 0 1-24 0c0-6 3-9 5-12 1 4 3 5 4 5 0-6-1-11 3-17z"/></svg><p>Hadi pişirelim!</p></div>
+        </div>
+      </section>
+
+      <section class="doodle-wrap">
+        <svg class="doodle doodle-star doodle-br" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 4l4 14 14 6-14 6-4 14-4-14-14-6 14-6z"/></svg>
+        <a class="bento-card savior-card" id="savior" href="tarif.html?id=2">
+          <div class="savior-img" id="saviorImg"></div>
+          <div class="savior-text">
+            <span class="eyebrow">HAFTANIN KURTARICISI</span>
+            <h2>Öğrenci Evinin Vazgeçilmezi</h2>
+            <p id="saviorName"></p>
+            <span class="btn-pill">Tarife Git</span>
+          </div>
+        </a>
+      </section>
+    </div>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="common.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>

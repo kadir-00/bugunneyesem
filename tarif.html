@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tarif – Bugün Ne Yesem?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <script src="theme.js"></script>
+  <aside class="sidebar">
+    <a class="logo" href="index.html">Bugün Ne Yesem?</a>
+    <nav class="side-nav" aria-label="Ana menü">
+    <ul>
+      <li><a href="kiler.html">Kilerim</a></li>
+      <li><a class="active" href="tarif.html">Tarifler</a></li>
+      <li><a href="bilgi.html">Besin Tablosu</a></li>
+      <li><a href="plan.html">Alışveriş Listem</a></li>
+    </ul>
+    </nav>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Gece / gündüz modunu değiştir">
+        <svg class="moon" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+      </button>
+      <a class="profile" href="#" aria-label="Profil"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="10" r="3.2"/><path d="M5.8 18.6c1.4-2.6 3.6-3.8 6.2-3.8s4.8 1.2 6.2 3.8"/></svg></a>
+    </div>
+  </aside>
+
+  <main class="split">
+    <aside class="command" id="side"></aside>
+    <div class="playground" id="content"></div>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="common.js"></script>
+  <script src="tarif.js"></script>
+</body>
+</html>

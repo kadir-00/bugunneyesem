@@ -1,0 +1,16 @@
+# Gizli dosyalar (asla GitHub'a gitmesin)
+.env
+.env.*
+*.key
+*.pem
+
+# Işletim sistemi / editör dosyaları
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
+
+# Geçici dosyalar
+*.log
+node_modules/

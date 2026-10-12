@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kilerim – Bugün Ne Yesem?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <script src="theme.js"></script>
+  <aside class="sidebar">
+    <a class="logo" href="index.html">Bugün Ne Yesem?</a>
+    <nav class="side-nav" aria-label="Ana menü">
+    <ul>
+      <li><a class="active" href="kiler.html">Kilerim</a></li>
+      <li><a href="tarif.html">Tarifler</a></li>
+      <li><a href="bilgi.html">Besin Tablosu</a></li>
+      <li><a href="plan.html">Alışveriş Listem</a></li>
+    </ul>
+    </nav>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Gece / gündüz modunu değiştir">
+        <svg class="moon" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+      </button>
+      <a class="profile" href="#" aria-label="Profil"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="10" r="3.2"/><path d="M5.8 18.6c1.4-2.6 3.6-3.8 6.2-3.8s4.8 1.2 6.2 3.8"/></svg></a>
+    </div>
+  </aside>
+
+  <main class="split">
+    <aside class="command">
+      <h1 class="doodle-title">Kilerim</h1>
+      <p class="lead">Evindeki malzemeleri kilerine ekle; tarifler, eksiği en az olandan başlayarak sıralanır.</p>
+      <p class="pantry-count" id="pantryCount"></p>
+    </aside>
+
+    <div class="playground">
+      <section class="bento-card fridge-card">
+        <h2>Buzdolabım / Kilerim</h2>
+        <div class="fridge" id="pantryChips"></div>
+      </section>
+
+      <section class="bento-card pantry-add">
+        <h2>Kilere Malzeme Ekle</h2>
+        <form id="pantryForm" class="pantry-form">
+          <div class="autocomplete-wrap">
+            <input id="pantryInput" class="search-input" type="text" placeholder="Malzeme ekle: makarna, salça, soğan..." autocomplete="off">
+            <ul id="autocomplete-list" class="autocomplete-items"></ul>
+          </div>
+          <button class="btn" type="submit">Kilere Ekle</button>
+        </form>
+      </section>
+
+      <section class="bento-card quick-add-card">
+        <h2>Hızlı Ekle</h2>
+        <p class="muted">Evin demirbaşlarını tek tıkla dolabına at.</p>
+        <div class="quick-add-list" id="quickAddList">
+          <button type="button" class="quick-add" data-add="Tuz"><span class="plus" aria-hidden="true">+</span> Tuz</button>
+          <button type="button" class="quick-add" data-add="Sıvı Yağ"><span class="plus" aria-hidden="true">+</span> Sıvı Yağ</button>
+          <button type="button" class="quick-add" data-add="Yumurta"><span class="plus" aria-hidden="true">+</span> Yumurta</button>
+          <button type="button" class="quick-add" data-add="Soğan"><span class="plus" aria-hidden="true">+</span> Soğan</button>
+          <button type="button" class="quick-add" data-add="Salça"><span class="plus" aria-hidden="true">+</span> Salça</button>
+          <button type="button" class="quick-add" data-add="Ekmek"><span class="plus" aria-hidden="true">+</span> Ekmek</button>
+          <button type="button" class="quick-add" data-add="Süt"><span class="plus" aria-hidden="true">+</span> Süt</button>
+        </div>
+      </section>
+
+      <section class="clear-row">
+        <button type="button" class="btn-clear btn-clear-neon" id="clearPantry">Kileri Tamamen Boşalt</button>
+      </section>
+
+      <section>
+        <h2 class="doodle-h" id="recipesTitle">Tarifler</h2>
+        <input id="search" class="search-input" type="text" placeholder="Tarif veya malzeme ara (isteğe bağlı)..." autocomplete="off">
+        <div class="tags" id="tagFilter"></div>
+        <p class="result-info" id="info"></p>
+        <div class="grid" id="results"></div>
+      </section>
+    </div>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="common.js"></script>
+  <script src="kiler.js"></script>
+</body>
+</html>
