@@ -32,23 +32,17 @@
 
   <main class="split">
     <aside class="command">
-      <h1 class="doodle-title">Besin Tablosu</h1>
-      <p class="lead">Sütun başlığına tıklayarak sıralayabilirsin; tekrar tıklayınca yön değişir. Kalori ve protein değerleri 100 g içindir.</p>
+      <h1 class="doodle-title">Besin Değerleri</h1>
+      <p class="lead">Tariflerin porsiyon başına kalori ve protein değerleri.</p>
+      <input id="nutritionSearch" class="search-input neon-search" type="text" placeholder="Yemek Ara..." autocomplete="off" aria-label="Yemek ara">
     </aside>
 
     <div class="playground">
-      <div class="table-wrap">
-        <table id="foodTable">
-          <thead>
-            <tr>
-              <th class="sortable" data-key="name">Gıda</th>
-              <th class="sortable num" data-key="calories">Kalori (kcal)</th>
-              <th class="sortable num" data-key="protein">Protein (g)</th>
-            </tr>
-          </thead>
-          <tbody id="foodBody"></tbody>
-        </table>
+      <div class="nutrition-head">
+        <div class="sort-col"><button type="button" class="sort-th" data-key="calories" aria-label="Kaloriye göre sırala">Kalori <svg class="sort-arrow" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="up" d="M4.5 6.5 8 3l3.5 3.5"/><path class="down" d="M4.5 9.5 8 13l3.5-3.5"/></svg></button></div>
+        <div class="sort-col"><button type="button" class="sort-th" data-key="protein" aria-label="Proteine göre sırala">Protein <svg class="sort-arrow" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="up" d="M4.5 6.5 8 3l3.5 3.5"/><path class="down" d="M4.5 9.5 8 13l3.5-3.5"/></svg></button></div>
       </div>
+      <div class="nutrition-grid" id="nutrition-grid"></div>
     </div>
   </main>
 

@@ -65,6 +65,13 @@ body.light-mode {
 
 * { box-sizing: border-box; }
 
+/* Kaydırma çubuklarını gizle (kaydırma işlevi korunur) */
+html, body, .sidebar, .playground, .table-wrap, .autocomplete-items {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+::-webkit-scrollbar { display: none; }
+
 html { background-color: #0B0C10; }
 html:has(body.light-mode) { background-color: #F3F4F8; }
 
@@ -548,7 +555,9 @@ body.light-mode .quick-chip { background: rgba(255, 255, 255, 0.7); box-shadow: 
   font-size: 0.78rem;
 }
 button.tag, .tags .btn-sm { cursor: pointer; }
-.tag.on, .tags .btn-sm:not(.btn-outline) { border-color: var(--accent); color: var(--accent-2); box-shadow: var(--glow-accent); }
+.tag.on { border-color: var(--accent); color: var(--accent-2); box-shadow: var(--glow-accent); }
+/* Seçili filtre: turuncu zemin üzerinde yüksek kontrastlı koyu yazı */
+.tags .btn-sm:not(.btn-outline) { border: 1px solid var(--accent); color: #0B0C10; box-shadow: var(--glow-accent); }
 .muted { color: var(--muted); font-size: 0.92rem; }
 .match { color: var(--accent-2); font-weight: 600; font-size: 0.9rem; margin: 0 0 0.6rem; }
 .all-set { color: var(--ok); font-weight: 600; text-shadow: 0 0 12px rgba(0, 255, 127, 0.45); }
@@ -737,3 +746,80 @@ body.light-mode .autocomplete-items { background: #fff; }
 }
 #toast.show { opacity: 1; transform: translate(-50%, 0); }
 footer { text-align: center; color: var(--muted); padding: 1.5rem; font-size: 0.85rem; }
+
+/* ---------- Besin Değerleri sayfası ---------- */
+.neon-search { border: 1.5px solid var(--cyan); box-shadow: 0 0 14px rgba(0, 229, 255, 0.35); }
+.neon-search:focus { outline: none; box-shadow: 0 0 22px rgba(0, 229, 255, 0.6); }
+.nutrition-grid { display: flex; flex-direction: column; gap: 1rem; }
+.nutrition-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  padding: 1rem 1.3rem;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.nutrition-food { display: flex; align-items: center; gap: 1rem; min-width: 0; }
+.nutrition-food h3 { margin: 0; font-size: 1.1rem; }
+.nutrition-thumb { width: 64px; height: 64px; border-radius: 16px; object-fit: cover; flex-shrink: 0; }
+.nutrition-stats { display: flex; gap: 1.6rem; flex-wrap: wrap; }
+.nutrition-stats .stat { display: flex; flex-direction: column; gap: 0.4rem; min-width: 140px; }
+.stat-value { font-weight: 700; }
+.stat-cal .stat-value { color: #FF9F1C; text-shadow: 0 0 10px rgba(255, 159, 28, 0.5); }
+.stat-pro .stat-value { color: #00E58A; text-shadow: 0 0 10px rgba(0, 229, 138, 0.45); }
+.mini-bar { display: block; height: 4px; border-radius: 999px; background: var(--glass-border); overflow: hidden; }
+.mini-bar > span { display: block; height: 100%; border-radius: 999px; }
+.stat-cal .mini-bar > span { background: #FF9F1C; box-shadow: 0 0 8px #FF9F1C; }
+.stat-pro .mini-bar > span { background: #00E58A; box-shadow: 0 0 8px #00E58A; }
+body.light-mode .stat-cal .stat-value { color: #C26A00; text-shadow: none; }
+body.light-mode .stat-pro .stat-value { color: #00804D; text-shadow: none; }
+
+/* Sıralama başlıkları */
+.nutrition-head { display: flex; justify-content: flex-end; gap: 1.6rem; flex-wrap: wrap; padding: 0 1.3rem; }
+.nutrition-head .sort-col { min-width: 140px; }
+.sort-th {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0;
+  font: inherit;
+  font-weight: 600;
+  color: var(--text-strong);
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.sort-arrow { width: 16px; height: 16px; flex-shrink: 0; opacity: 0.35; transition: opacity 0.15s, color 0.15s, filter 0.15s; }
+.sort-arrow .up, .sort-arrow .down { transition: opacity 0.15s; }
+.sort-th:hover .sort-arrow, .sort-th.sort-asc .sort-arrow, .sort-th.sort-desc .sort-arrow {
+  opacity: 1;
+  color: var(--cyan);
+  filter: drop-shadow(0 0 4px var(--cyan));
+}
+/* Aktif sıralamada yalnızca yön okunu göster */
+.sort-th.sort-asc .sort-arrow .down, .sort-th.sort-desc .sort-arrow .up { opacity: 0; }
+
+/* ---------- Alışveriş listesi: yemeğe göre gruplu ---------- */
+.group-title { color: var(--accent); text-shadow: 0 0 12px rgba(255, 76, 41, 0.45); font-size: 1.3rem; }
+body.light-mode .group-title { text-shadow: none; }
+.shop-list { list-style: none; margin: 0.8rem 0; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+.shop-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 0.9rem 1rem;
+  font-size: 1.2rem;
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: opacity 0.15s, border-color 0.15s;
+}
+.shop-item input { width: 1.7rem; height: 1.7rem; flex-shrink: 0; accent-color: var(--accent); cursor: pointer; }
+.shop-item.got { opacity: 0.45; border-color: var(--accent); }
+.shop-item.got .shop-name { text-decoration: line-through; text-decoration-color: var(--accent); text-decoration-thickness: 3px; }

@@ -119,7 +119,9 @@ function renderTags() {
   tagBox.innerHTML = "";
   allTags.forEach(tag => {
     const btn = document.createElement("button");
+    btn.type = "button";
     btn.className = "btn btn-sm" + (tag === activeTag ? "" : " btn-outline");
+    btn.setAttribute("aria-pressed", String(tag === activeTag));
     btn.textContent = tag;
     btn.addEventListener("click", () => {
       activeTag = activeTag === tag ? "" : tag;
@@ -155,7 +157,7 @@ function render() {
 const initialQuery = new URLSearchParams(location.search).get("q");
 if (initialQuery) searchInput.value = initialQuery;
 
-searchInput.addEventListener("keyup", render);
+searchInput.addEventListener("input", render);
 renderTags();
 renderPantry();
 render();

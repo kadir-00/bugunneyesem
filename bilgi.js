@@ -1,34 +1,55 @@
-const rows = foods.map(f => ({ ...f }));
-const body = document.getElementById("foodBody");
-const headers = document.querySelectorAll("#foodTable th.sortable");
+const grid = document.getElementById("nutrition-grid");
+const searchBox = document.getElementById("nutritionSearch");
 
+// Çubuk oranları tariflerdeki en yüksek değere göre hesaplanır.
+const maxCalories = Math.max(...recipes.map(r => r.calories));
+const maxProtein = Math.max(...recipes.map(r => r.protein));
+
+function nutritionCardHTML(r) {
+  const calPct = Math.round((r.calories / maxCalories) * 100);
+  const proPct = Math.round((r.protein / maxProtein) * 100);
+  return `
+    <article class="nutrition-card">
+      <div class="nutrition-food">
+        ${r.image ? `<img class="nutrition-thumb" src="${r.image}" alt="" loading="lazy" onerror="this.remove()">` : ""}
+        <h3>${r.name}</h3>
+      </div>
+      <div class="nutrition-stats">
+        <div class="stat stat-cal">
+          <span class="stat-value">🔥 ${r.calories} kcal</span>
+          <span class="mini-bar"><span style="width:${calPct}%"></span></span>
+        </div>
+        <div class="stat stat-pro">
+          <span class="stat-value">💪 ${r.protein}g Protein</span>
+          <span class="mini-bar"><span style="width:${proPct}%"></span></span>
+        </div>
+      </div>
+    </article>`;
+}
+
+const sortHeaders = document.querySelectorAll(".sort-th");
 let sortKey = null;
-let sortDir = 1; // 1: küçükten büyüğe, -1: büyükten küçüğe
+let sortDir = 1; // 1: artan, -1: azalan
 
 function render() {
-  body.innerHTML = rows.map(f => `
-    <tr>
-      <td>${f.name}</td>
-      <td class="num">${f.calories}</td>
-      <td class="num">${f.protein}</td>
-    </tr>`).join("");
+  const q = norm(searchBox.value);
+  const list = recipes.filter(r => norm(r.name).includes(q));
+  if (sortKey) list.sort((a, b) => (a[sortKey] - b[sortKey]) * sortDir);
+  grid.innerHTML = list.length
+    ? list.map(nutritionCardHTML).join("")
+    : `<p class="empty">Aramana uyan yemek bulunamadı.</p>`;
 }
 
-function sortBy(key) {
+searchBox.addEventListener("keyup", render);
+
+sortHeaders.forEach(h => h.addEventListener("click", () => {
+  const key = h.dataset.key;
   sortDir = sortKey === key ? -sortDir : 1;
   sortKey = key;
-
-  rows.sort((a, b) => {
-    if (key === "name") return a.name.localeCompare(b.name, "tr") * sortDir;
-    return (a[key] - b[key]) * sortDir;
-  });
-
-  headers.forEach(h => {
-    h.classList.remove("sort-asc", "sort-desc");
-    if (h.dataset.key === key) h.classList.add(sortDir === 1 ? "sort-asc" : "sort-desc");
+  sortHeaders.forEach(x => {
+    x.classList.remove("sort-asc", "sort-desc");
+    if (x.dataset.key === key) x.classList.add(sortDir === 1 ? "sort-asc" : "sort-desc");
   });
   render();
-}
-
-headers.forEach(h => h.addEventListener("click", () => sortBy(h.dataset.key)));
+}));
 render();

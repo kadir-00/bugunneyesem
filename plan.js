@@ -15,25 +15,36 @@ function render() {
     <span>${plan.length} tarif · Alınacak <strong>${totalItems}</strong> malzeme</span>
     <button class="btn btn-danger" id="clearAll">Listeyi Temizle</button>`;
 
-  listBox.innerHTML = plan.map(p => {
-    const done = p.checked.length;
-    const pct = Math.round((done / p.ingredients.length) * 100);
-    const items = p.ingredients.map((ing, i) => `
+  // Eksikler yemeğe göre gruplanır: { recipeId, recipeName, missingIngredients, checked }
+  const groups = plan.map(p => ({
+    recipeId: p.id,
+    recipeName: p.name,
+    missingIngredients: p.ingredients,
+    checked: p.checked
+  }));
+
+  listBox.innerHTML = groups.map(g => {
+    const done = g.checked.length;
+    const pct = Math.round((done / g.missingIngredients.length) * 100);
+    const items = g.missingIngredients.map((ing, i) => {
+      const got = g.checked.includes(ing);
+      return `
       <li>
-        <label>
-          <input type="checkbox" data-recipe="${p.id}" data-ing="${i}" ${p.checked.includes(ing) ? "checked" : ""}>
-          <span>${ing}</span>
+        <label class="shop-item${got ? " got" : ""}">
+          <input type="checkbox" data-recipe="${g.recipeId}" data-ing="${i}" ${got ? "checked" : ""}>
+          <span class="shop-name">${ing}</span>
         </label>
-      </li>`).join("");
+      </li>`;
+    }).join("");
     return `
-      <article class="card plan-card">
-        <h3>${p.name}</h3>
-        <p class="muted">${done} / ${p.ingredients.length} eksik malzeme alındı</p>
+      <article class="card plan-card group-card">
+        <h3 class="group-title">${g.recipeName} İçin Eksikler</h3>
+        <p class="muted">${done} / ${g.missingIngredients.length} malzeme alındı</p>
         <div class="progress"><div style="width:${pct}%"></div></div>
-        <ul class="todo">${items}</ul>
+        <ul class="todo shop-list">${items}</ul>
         <div class="card-actions">
-          <a class="btn btn-outline" href="tarif.html?id=${p.id}">Tarife Git</a>
-          <button class="btn btn-danger" data-remove="${p.id}">Kaldır</button>
+          <a class="btn btn-outline" href="tarif.html?id=${g.recipeId}">Tarife Git</a>
+          <button class="btn btn-danger" data-remove="${g.recipeId}">Kaldır</button>
         </div>
       </article>`;
   }).join("");

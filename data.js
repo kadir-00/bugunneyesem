@@ -10,6 +10,8 @@ const recipes = [
     ingredients: ["Makarna", "Salça", "Sıvı Yağ"],
     amounts: [[200, "g"], [2, "yemek kaşığı"], [2, "yemek kaşığı"]],
     basePortion: 2,
+    calories: 480, // porsiyon başına kcal
+    protein: 14, // porsiyon başına gram
     steps: ["Suyu kaynat ve tuzla", "Makarnayı at, 9 dakika haşla", "Tavada yağda salçayı kavur", "Süzdüğün makarnayı salçayla karıştır"]
   },
   {
@@ -20,6 +22,8 @@ const recipes = [
     ingredients: ["Yumurta", "Domates", "Biber", "Sıvı Yağ"],
     amounts: [[3, "adet"], [2, "adet"], [2, "adet"], [1, "yemek kaşığı"]],
     basePortion: 2,
+    calories: 290, // porsiyon başına kcal
+    protein: 17, // porsiyon başına gram
     steps: ["Biberleri doğrayıp yağda soteler", "Rendelenmiş domatesi ekle, suyunu çekene kadar pişir", "Yumurtaları kır ve hafifçe karıştır", "Tuz ekle, yumurtalar kıvam alınca ocaktan al"]
   },
   {
@@ -30,6 +34,8 @@ const recipes = [
     ingredients: ["Kırmızı Mercimek", "Soğan", "Havuç", "Sıvı Yağ", "Salça"],
     amounts: [[1, "su bardağı"], [1, "adet"], [1, "adet"], [2, "yemek kaşığı"], [1, "yemek kaşığı"]],
     basePortion: 4,
+    calories: 210, // porsiyon başına kcal
+    protein: 11, // porsiyon başına gram
     steps: ["Soğan ve havucu küçük doğrayıp yağda kavur", "Salçayı ve yıkanmış mercimeği ekle", "6 su bardağı su ekleyip 25 dakika kaynat", "Blenderdan geçir, tuz ve baharat ekle"]
   },
   {
@@ -40,6 +46,8 @@ const recipes = [
     ingredients: ["Yulaf", "Süt", "Muz"],
     amounts: [[50, "g"], [200, "ml"], [1, "adet"]],
     basePortion: 1,
+    calories: 340, // porsiyon başına kcal
+    protein: 11, // porsiyon başına gram
     steps: ["Yulafı ve sütü küçük bir tencerede ısıt", "Kısık ateşte 5 dakika karıştırarak pişir", "Üzerine dilimlenmiş muzu ekle"]
   },
   {
@@ -50,6 +58,8 @@ const recipes = [
     ingredients: ["Pirinç", "Tavuk Göğsü", "Soğan", "Sıvı Yağ"],
     amounts: [[1.5, "su bardağı"], [250, "g"], [1, "adet"], [2, "yemek kaşığı"]],
     basePortion: 3,
+    calories: 520, // porsiyon başına kcal
+    protein: 34, // porsiyon başına gram
     steps: ["Tavuğu küp küp doğra, yağda mühürle", "Soğanı ekle, pembeleşene kadar kavur", "Yıkanmış pirinci ekle, 2 dakika çevir", "Pirincin 1,5 katı sıcak su ekle, kısık ateşte 15 dakika demle"]
   },
   {
@@ -60,6 +70,8 @@ const recipes = [
     ingredients: ["Kuru Fasulye", "Soğan", "Salça", "Sıvı Yağ"],
     amounts: [[250, "g"], [1, "adet"], [1, "yemek kaşığı"], [2, "yemek kaşığı"]],
     basePortion: 4,
+    calories: 380, // porsiyon başına kcal
+    protein: 19, // porsiyon başına gram
     steps: ["Fasulyeyi bir gece önceden suda beklet", "Soğanı ve salçayı yağda kavur", "Fasulyeyi ve suyunu ekle", "Düdüklüde 25 dakika pişir, tuzla"]
   },
   {
@@ -70,6 +82,8 @@ const recipes = [
     ingredients: ["Patates", "Soğan", "Salça", "Sıvı Yağ"],
     amounts: [[3, "adet"], [1, "adet"], [1, "yemek kaşığı"], [2, "yemek kaşığı"]],
     basePortion: 3,
+    calories: 310, // porsiyon başına kcal
+    protein: 6, // porsiyon başına gram
     steps: ["Patatesleri küp küp doğra", "Soğanı yağda kavur, salçayı ekle", "Patatesleri ekleyip karıştır", "Üstünü geçecek kadar su ekle, 20 dakika pişir"]
   },
   {
@@ -80,6 +94,8 @@ const recipes = [
     ingredients: ["Yumurta", "Beyaz Peynir", "Sıvı Yağ"],
     amounts: [[3, "adet"], [50, "g"], [1, "yemek kaşığı"]],
     basePortion: 2,
+    calories: 360, // porsiyon başına kcal
+    protein: 22, // porsiyon başına gram
     steps: ["Yumurtaları çırp, ezilmiş peyniri ekle", "Tavayı yağla ısıt", "Karışımı dök, kısık ateşte pişir", "Ortadan katla ve servis et"]
   },
   {
@@ -90,6 +106,8 @@ const recipes = [
     ingredients: ["Haşlanmış Nohut", "Domates", "Soğan", "Limon"],
     amounts: [[200, "g"], [2, "adet"], [1, "adet"], [1, "adet"]],
     basePortion: 2,
+    calories: 330, // porsiyon başına kcal
+    protein: 13, // porsiyon başına gram
     steps: ["Nohudu süzüp kaseye al", "Domates ve soğanı doğra", "Limon sıkıp tuz ekle", "İyice karıştır, 5 dakika dinlendir"]
   },
   {
@@ -100,6 +118,8 @@ const recipes = [
     ingredients: ["Makarna", "Kıyma", "Soğan", "Salça"],
     amounts: [[300, "g"], [200, "g"], [1, "adet"], [1, "yemek kaşığı"]],
     basePortion: 3,
+    calories: 560, // porsiyon başına kcal
+    protein: 26, // porsiyon başına gram
     steps: ["Soğanı ve kıymayı kendi suyunda kavur", "Salçayı ekle, birkaç dakika çevir", "Makarnayı haşlayıp süz", "Kıymalı sosla karıştır"]
   }
 ];
