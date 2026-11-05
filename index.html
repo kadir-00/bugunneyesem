@@ -37,14 +37,14 @@
 
     <div class="side-footer">
       <div class="icon-capsule">
-        <a class="profile cap-btn" href="#" aria-label="Kullanıcı Profili"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="10" r="3.2"/><path d="M5.8 18.6c1.4-2.6 3.6-3.8 6.2-3.8s4.8 1.2 6.2 3.8"/></svg></a>
+        <a class="profile cap-btn" href="#" aria-label="Kullanıcı Profili" aria-haspopup="true" aria-expanded="false" data-profile-toggle><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="10" r="3.2"/><path d="M5.8 18.6c1.4-2.6 3.6-3.8 6.2-3.8s4.8 1.2 6.2 3.8"/></svg></a>
         <button class="theme-toggle cap-btn" id="themeToggle" type="button" aria-label="Gece / gündüz modunu değiştir">
           <svg class="moon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg>
           <svg class="sun" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
         </button>
       </div>
       <ul class="footer-labels">
-        <li><a href="#">Kullanıcı Profili</a></li>
+        <li><a href="#" data-profile-toggle>Kullanıcı Profili</a></li>
         <li><button type="button" data-theme-toggle>Tema Değiştirici</button></li>
       </ul>
     </div>
@@ -129,6 +129,12 @@
       </section>
     </div>
   </main>
+
+  <div class="profile-pop" id="profilePop" role="dialog" aria-label="Kullanıcı bilgileri" hidden>
+    <strong>Vildan Olmez</strong>
+    <span>Öğrenci</span>
+    <span>22 yaşında</span>
+  </div>
 
   <script src="data.js"></script>
   <script src="common.js"></script>

@@ -823,3 +823,24 @@ body.light-mode .group-title { text-shadow: none; }
 .shop-item input { width: 1.7rem; height: 1.7rem; flex-shrink: 0; accent-color: var(--accent); cursor: pointer; }
 .shop-item.got { opacity: 0.45; border-color: var(--accent); }
 .shop-item.got .shop-name { text-decoration: line-through; text-decoration-color: var(--accent); text-decoration-thickness: 3px; }
+
+/* ---------- Profil kutucuğu (ana sayfa) ---------- */
+.profile-pop {
+  position: fixed;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.7rem 1rem;
+  font-size: 0.85rem;
+  color: var(--text);
+  background: var(--glass);
+  border: 1px solid var(--accent);
+  border-radius: 14px;
+  box-shadow: var(--glow-accent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+.profile-pop[hidden] { display: none; }
+.profile-pop strong { color: var(--text-strong); font-family: var(--font-head); font-size: 0.95rem; }
+body.light-mode .profile-pop { background: rgba(255, 255, 255, 0.92); }

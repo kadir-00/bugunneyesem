@@ -62,3 +62,32 @@ document.getElementById("savior").href = `tarif.html?id=${savior.id}`;
 document.getElementById("saviorName").textContent =
   `${savior.name}: ${savior.ingredients.length} malzeme, tek tavada, dakikalar içinde.`;
 if (savior.image) document.getElementById("saviorImg").style.backgroundImage = `url("${savior.image}")`;
+
+// ---- Profil kutucuğu: ikona tıklayınca açılır, dışarı tıklayınca / Esc ile kapanır ----
+(function () {
+  const pop = document.getElementById("profilePop");
+  const toggles = document.querySelectorAll("[data-profile-toggle]");
+  const icon = document.querySelector(".profile.cap-btn");
+
+  function place(anchor) {
+    const r = anchor.getBoundingClientRect();
+    pop.style.left = `${Math.round(r.right + 12)}px`;
+    pop.style.top = `${Math.round(Math.max(8, r.top + r.height / 2 - pop.offsetHeight / 2))}px`;
+  }
+  function close() {
+    pop.hidden = true;
+    icon.setAttribute("aria-expanded", "false");
+  }
+
+  toggles.forEach(t => t.addEventListener("click", e => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (!pop.hidden) return close();
+    pop.hidden = false;
+    place(t);
+    icon.setAttribute("aria-expanded", "true");
+  }));
+  document.addEventListener("click", e => { if (!pop.hidden && !pop.contains(e.target)) close(); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
+  window.addEventListener("resize", close);
+})();
